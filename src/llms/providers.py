@@ -28,7 +28,12 @@ class AnthropicProvider:
     def create_llm(cls, config: Dict[str, Any]) -> BaseChatModel:
         model = config.get("model", "")
         if model.startswith("anthropic/"):
-            config["model"] = model[10:]
+            model = model[10:]
+            
+        import re
+        model = re.sub(r'-\d{8}$', '', model)
+        config["model"] = model
+        
         return ChatAnthropic(**config)
 
 

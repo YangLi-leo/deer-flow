@@ -8,7 +8,7 @@ To use Claude models, update your `conf.yaml` file with the following configurat
 
 ```yaml
 BASIC_MODEL:
-  model: "anthropic/claude-3-sonnet-20240229"
+  model: "anthropic/claude-3-sonnet"
   api_key: $ANTHROPIC_API_KEY
   max_tokens: 4096
   temperature: 0.7
@@ -24,10 +24,13 @@ ANTHROPIC_API_KEY=your_api_key_here
 
 DeerFlow supports the following Claude models:
 
-- `anthropic/claude-3-opus-20240229`: Most capable model for complex tasks
-- `anthropic/claude-3-sonnet-20240229`: Balanced performance and cost
-- `anthropic/claude-3-haiku-20240307`: Fast and cost-effective
-- `anthropic/claude-3.5-sonnet-20240620`: Latest model with improved capabilities
+- `anthropic/claude-3-opus`: Most capable Claude 3 model for complex tasks
+- `anthropic/claude-3-sonnet`: Balanced performance and cost
+- `anthropic/claude-3-haiku`: Fast and cost-effective
+- `anthropic/claude-3.5-sonnet`: Improved capabilities over Claude 3
+- `anthropic/claude-4`: Most advanced Claude model with enhanced reasoning
+- `anthropic/claude-4-sonnet`: Balanced version of Claude 4
+- `anthropic/claude-instant-1.2`: Fast and efficient for simpler tasks
 
 ## Best Practices
 
