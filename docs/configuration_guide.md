@@ -99,3 +99,24 @@ BASIC_MODEL:
   api_version: $AZURE_API_VERSION
   api_key: $AZURE_API_KEY
 ```
+
+### How to use Anthropic Claude models?
+
+DeerFlow supports the integration of Anthropic Claude models through LiteLLM and langchain-anthropic. You can refer to [litellm Anthropic](https://docs.litellm.ai/docs/providers/anthropic) for more details.
+
+The following is a configuration example of `conf.yaml` for using Anthropic Claude models:
+```yaml
+BASIC_MODEL:
+  model: "anthropic/claude-3-sonnet-20240229"
+  api_key: $ANTHROPIC_API_KEY
+  max_tokens: 4096
+  temperature: 0.7
+```
+
+Other supported Claude models include:
+- `anthropic/claude-3-opus-20240229`
+- `anthropic/claude-3-haiku-20240307`
+- `anthropic/claude-3.5-sonnet-20240620`
+- `anthropic/claude-instant-1.2`
+
+For the most up-to-date model list, please refer to [Anthropic's model documentation](https://docs.anthropic.com/claude/docs/models-overview).
