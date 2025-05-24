@@ -26,15 +26,21 @@ class AnthropicProvider:
 
     @classmethod
     def create_llm(cls, config: Dict[str, Any]) -> BaseChatModel:
-        model = config.get("model", "")
+        config_copy = config.copy()
+
+        model = config_copy.get("model", "")
         if model.startswith("anthropic/"):
             model = model[10:]
-            
+
         import re
-        model = re.sub(r'-\d{8}$', '', model)
-        config["model"] = model
-        
-        return ChatAnthropic(**config)
+
+        model = re.sub(r"-\d{8}$", "", model)
+        config_copy["model"] = model
+
+        if "api_key" in config_copy and "anthropic_api_key" not in config_copy:
+            config_copy["anthropic_api_key"] = config_copy.pop("api_key")
+
+        return ChatAnthropic(**config_copy)
 
 
 PROVIDER_MAP: Dict[str, Type[LLMProvider]] = {
